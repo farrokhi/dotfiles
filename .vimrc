@@ -8,10 +8,11 @@ set ruler
 set textwidth=80
 set showcmd
 
-set tabstop=8
+set tabstop=4
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+set shiftround
 
 set nowrapscan
 set paste
@@ -24,7 +25,7 @@ set showmatch
 
 set nocindent
 set nosmartindent
-set noautoindent
+""set noautoindent
 set indentexpr=
 filetype indent plugin on
 
