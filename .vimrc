@@ -31,6 +31,10 @@ filetype indent plugin on
 set shell=/bin/csh
 set noswapfile
 set viminfo=""
-
-colorscheme ron
 set background=dark
+
+try
+    colorscheme smyck256
+catch
+    colorscheme ron
+endtry
