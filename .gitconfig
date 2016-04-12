@@ -1,0 +1,6 @@
+[user]
+	name = Babak Farrokhi
+	email = babak@farrokhi.net
+	signingkey = 0x6B267AD85D632E9A
+[push]
+	default = simple
