@@ -4,3 +4,6 @@
 	signingkey = 0x6B267AD85D632E9A
 [push]
 	default = simple
+[pull]
+	ff = only
+
