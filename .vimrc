@@ -5,14 +5,15 @@ set backspace=indent,eol,start
 set nobackup
 set history=50
 set ruler
-set textwidth=80
 set showcmd
 
+set textwidth=80
 set tabstop=4
-set expandtab
 set shiftwidth=4
 set softtabstop=4
-set shiftround
+set expandtab
+set smarttab
+set autoindent
 
 set nowrapscan
 set paste
@@ -23,11 +24,14 @@ set ignorecase
 set incsearch
 set showmatch
 
-set nocindent
-set nosmartindent
-""set noautoindent
-set indentexpr=
-filetype indent plugin on
+if has("autocmd")
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+endif
 
 set shell=/bin/csh
 set noswapfile
