@@ -1,11 +1,13 @@
 set nocompatible
 set modeline
+set showmode
 syntax on
 set backspace=indent,eol,start
 set nobackup
 set history=50
 set ruler
 set showcmd
+set vb
 
 set textwidth=80
 set tabstop=4
@@ -23,6 +25,8 @@ set title titlestring=vim\ %f
 set ignorecase
 set incsearch
 set showmatch
+
+set statusline=%<%F%h%m%r\ [%{&ff}]\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})%=%l,%c%V\ %P
 
 if has("autocmd")
   " Enable file type detection.
