@@ -9,7 +9,7 @@ set ruler
 set showcmd
 set showmode
 
-set textwidth=80
+"set textwidth=80
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -39,6 +39,9 @@ catch
     colorscheme ron
 endtry
 
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-set laststatus=2
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
