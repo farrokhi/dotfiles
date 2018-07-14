@@ -1,5 +1,5 @@
 # dotfiles
 
-persoal dotfiles on macos
+Personal dotfiles on FreeBSD/MacOS
 
 
