@@ -30,5 +30,9 @@ alias egrep="egrep --color"
 alias mc="mc -u"
 alias ll="ls -alh"
 
-export PROMPT="[%n@%m:%~]%# "
+if [ -r ${HOME}/kebab.zsh-theme ]; then
+    source ${HOME}/kebab.zsh-theme
+else
+    export PROMPT="[%n@%m:%~]%# "
+fi
 
