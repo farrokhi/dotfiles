@@ -4,6 +4,8 @@
 	signingkey = 0x6B267AD85D632E9A
 [core]
 	excludesfile = /Users/farrokhi/.gitignore_global
+[commit]
+        gpgsign = true                                                                              
 [filter "media"]
 	required = true
 	clean = git media clean %f
