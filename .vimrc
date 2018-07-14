@@ -28,7 +28,7 @@ set ttyfast
 set lazyredraw
 set cursorline
 
-set shell=/bin/csh
+"set shell=/bin/csh
 set noswapfile
 set background=dark
 
