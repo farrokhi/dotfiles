@@ -30,7 +30,6 @@ set cursorline
 
 set shell=/bin/csh
 set noswapfile
-set viminfo=""
 set background=dark
 
 try
