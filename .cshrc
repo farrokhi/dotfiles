@@ -39,4 +39,3 @@ set color
 
 source ~/.complete
 setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
-source  /usr/local/lib/python2.7/site-packages/powerline/bindings/tcsh/powerline.tcsh
