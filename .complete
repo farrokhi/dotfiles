@@ -6,9 +6,24 @@ complete ifconfig   'p/1/`ifconfig -l`/' 'n/*/(add alias -alias anycast arp -ar 
 	mode inst name rxsum -rxsum txsum -txsum tso -tso lro -lro wol vlanmtu vlanhwtag vlanhwfilter vlanhwtso \
 	-vlanmtu -vlanhwtag -vlanhwfilter -vlanhwtso vnet -vnet polling -polling create destroy metric mtu netmask \
 	prefixlen phase monitor -monitor up)/'
+complete systat 'p/1/(-icmp -icmp6 -ifstat -iostat -ip -ip6 -mbufs -netstat -pigs -swap -tcp -vmstat)/'
+if (-d /usr/share/syscons/keymaps) then
+	complete kbdcontrol 'n@-l@`ls /usr/share/syscons/keymaps | sed 's/.kbd//'`@'
+else if (-d /usr/share/vt/keymaps/) then
+	complete kbdcontrol 'n@-l@`ls /usr/share/vt/keymaps | sed 's/.kbd//'`@'
+endif
 
 complete tcpdump	'n@-i@`ifconfig -l`@'
 
+# pkgng
+complete pkg \
+    'n/add/f:*.t{b,x}z/' \
+    'n/{audit,delete,info,remove}/`pkg query "%n-%v"`/' \
+    'n/{autoremove,clean}/n/' \
+    'n/backup/(-r -s)/f' \
+    'n/{fetch,install}/`pkg rquery "%n-%v"`/' \
+    'n/{search}/`pkg rquery "%n"`/' \
+    'n/which/f/' \
 
 # Others Command complete
 # Lot's of these command complete were found here:
@@ -18,12 +33,18 @@ complete tcpdump	'n@-i@`ifconfig -l`@'
 # 
 
 # Service and process
+complete */rc.d/*	'p/1/(start stop reload restart status rcvar onestart onestop)/'
+complete service 'c/-/(e l r v)/' 'p/1/`service -l`/' 'n/*/(start stop reload restart status rcvar onestart onestop)/'
 complete kill 'c/-/S/' 'c/%/j/' 'n/*/`ps -o pid`/'
 complete killall  'c/-/S/' 'c/%/j/' 'n/*/`ps -axc -o command`/'
 
 # dd
 complete dd	'c/if=/f/' 'c/of=/f/' \
 	'p/*/(bs cbs count files fillchar ibs if iseek obs of oseek seek skip conv)/=/'
+
+# kernel modules
+complete kldload 'n@*@`ls -1 /boot/modules/ /boot/kernel/ | awk -F/ \$NF\ \~\ \".ko\"\ \{sub\(\/\.ko\/,\"\",\$NF\)\;print\ \$NF\}`@'
+complete kldunload 'n@*@`kldstat | awk \{sub\(\/\.ko\/,\"\",\$NF\)\;print\ \$NF\} | grep -v Name`@'
 
 # directories
 complete cd 'C/*/d/'
