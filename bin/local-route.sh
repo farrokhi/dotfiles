@@ -13,9 +13,9 @@ RLIST=$(cat ${ROUTES})
 
 for R in ${RLIST}; do
     printf "[*] %-30s -> ${GW} " ${R}
-    printf "[Delete] "
+    printf "[Deleting] "
     sudo route delete -net ${R} > /dev/null 2>&1
-    printf "[Add] "
+    printf "[Adding] "
     sudo route add -net ${R} ${GW} > /dev/null
     printf "[Done]\n"
 done
