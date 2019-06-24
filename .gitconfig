@@ -1,7 +1,7 @@
 [user]
 	name = Babak Farrokhi
 	email = babak@farrokhi.net
-	signingkey = 0x6B267AD85D632E9A
+	signingkey = 0x73586D509275D6DE
 [core]
 	excludesfile = /Users/farrokhi/.gitignore_global
 [commit]
