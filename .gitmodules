@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-jq"]
 	path = .vim/bundle/vim-jq
 	url = https://github.com/vito-c/jq.vim.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
