@@ -27,6 +27,7 @@ set autoindent
 set shiftround
 
 set nowrapscan
+set nowrap
 set mouse-=a
 
 " always show ^M in DOS files
@@ -62,3 +63,5 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+execute pathogen#infect()
+set updatetime=250
