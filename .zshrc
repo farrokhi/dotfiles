@@ -42,4 +42,6 @@ alias la="ls -A"
 alias yl="yamllint -d '{extends: default, rules: {line-length: disable, truthy: disable, braces: disable, brackets: disable}}'"
 
 # Ensure ssh-agent is running and we have valid settings in all sessions
-source ${HOME}/bin/ensure-ssh-agent.sh
+if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
+    source ${HOME}/bin/ensure-ssh-agent.sh
+fi
