@@ -23,11 +23,14 @@ DISABLE_AUTO_UPDATE="true"
 
 plugins=(
   git
+  tig
   pip
 )
 
 # Eyecandy and stuff for lazy people
-source $ZSH/oh-my-zsh.sh
+if [ -d $ZSH ]; then
+    source $ZSH/oh-my-zsh.sh
+fi
 
 # Useful aliases
 alias h="history 25"
@@ -44,4 +47,8 @@ alias yl="yamllint -d '{extends: default, rules: {line-length: disable, truthy: 
 # Ensure ssh-agent is running and we have valid settings in all sessions
 if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
     source ${HOME}/bin/ensure-ssh-agent.sh
+fi
+
+if [ -f ${HOME}/.Xresources ]; then
+    xrdb -merge ~/.Xresources
 fi
