@@ -7,28 +7,31 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 export ZSH="${HOME}/.oh-my-zsh"
 
+# Load shared variables and aliases if available
+[ -f ${HOME}/.sharedrc ] && source ${HOME}/.sharedrc
+
 # A few sane environment settings
 export PROMPT="[%n@%m:%~]%# "
 export EDITOR="vim"
 export LANG=en_US.UTF-8
-export PAGER="less -FX"
-
-# Theme settings
-ZSH_THEME="agkozak"
-AGKOZAK_MULTILINE=0
-
-CASE_SENSITIVE="true"
-HYPHEN_INSENSITIVE="true"
-DISABLE_AUTO_UPDATE="true"
-
-plugins=(
-  git
-  tig
-  pip
-)
+export PAGER="less -SFX"
 
 # Eyecandy and stuff for lazy people
 if [ -d $ZSH ]; then
+    # Theme settings
+    ZSH_THEME="agkozak"
+    AGKOZAK_MULTILINE=0
+
+    CASE_SENSITIVE="true"
+    HYPHEN_INSENSITIVE="true"
+    DISABLE_AUTO_UPDATE="true"
+
+    plugins=(
+        git
+        tig
+        pip
+    )
+
     source $ZSH/oh-my-zsh.sh
 fi
 
@@ -44,11 +47,5 @@ alias lf="ls -FA"
 alias la="ls -A"
 alias yl="yamllint -d '{extends: default, rules: {line-length: disable, truthy: disable, braces: disable, brackets: disable}}'"
 
-# Ensure ssh-agent is running and we have valid settings in all sessions
-if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
-    source ${HOME}/bin/ensure-ssh-agent.sh
-fi
-
-if [ -f ${HOME}/.Xresources ]; then
-    xrdb -merge ~/.Xresources
-fi
+[ -f ${HOME}/bin/ensure-ssh-agent.sh ] && source ${HOME}/bin/ensure-ssh-agent.sh
+[ -f ${HOME}/.Xresources ] && xrdb -merge ~/.Xresources
