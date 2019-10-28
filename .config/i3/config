@@ -19,6 +19,7 @@ set $mod Mod1
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Droid Sans Mono 9
 
+focus_follows_mouse no
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
