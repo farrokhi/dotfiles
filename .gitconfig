@@ -2,31 +2,32 @@
 	name = Babak Farrokhi
 	email = babak@farrokhi.net
 	signingkey = 0x73586D509275D6DE
+
 [core]
 	excludesfile = /Users/farrokhi/.gitignore_global
+	pager = less -SFX
+
 [commit]
-#        gpgsign = true
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+	gpgsign = true
+
 [push]
 	default = simple
+
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
 [pull]
 	ff = only
+
 [color]
 	ui = true
+
 [alias]
-        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	l  = log --stat --graph --abbrev-commit
 
 [pager]
-        branch = false
+	branch = false
