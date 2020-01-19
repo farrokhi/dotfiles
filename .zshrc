@@ -21,6 +21,7 @@ if [ -d ${ZSH} ]; then
     # Theme settings
     ZSH_THEME="agkozak"
     AGKOZAK_MULTILINE=0
+    AGKOZAK_CMD_EXEC_TIME=0
 
     CASE_SENSITIVE="true"
     HYPHEN_INSENSITIVE="true"
