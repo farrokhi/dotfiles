@@ -1,20 +1,17 @@
 #!/bin/sh
 
-###
-#
-# fetches, signs and uploads a given PGP key
-#
-###
 if [ -z $1 ]; then
 	echo key id needed
 	exit 1
 fi
 
-if !(`gpg2 --sign-key $1`); then
+echo "Signing..."
+if !(`gpg --sign-key $1`); then
 	echo "key not signed"
 	exit 1
 fi
 
-for server in hkp://keys.gnupg.net hkp://subkeys.pgp.net hkp://pgp.mit.edu; do
-	gpg2 --keyserver $server --send-key $1
+echo "Uploading..."
+for server in hkp://keys.openpgp.org hkp://pgp.mit.edu hkp://pgp.surfnet.nl; do
+	gpg --keyserver $server --send-key $1
 done
