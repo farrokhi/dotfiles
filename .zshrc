@@ -48,9 +48,14 @@ alias lf="ls -FA"
 alias la="ls -A"
 alias yl="yamllint -d '{extends: default, rules: {line-length: disable, truthy: disable, braces: disable, comments: disable, brackets: disable}}'"
 
-if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
-    source ${HOME}/bin/ensure-ssh-agent.sh
-fi
+# Setup gpg-agent to serve as ssh-agent
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
+#if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
+#    source ${HOME}/bin/ensure-ssh-agent.sh
+#fi
 
 if [ -f ${HOME}/.Xresources ]; then
     xrdb -merge ${HOME}/.Xresources
