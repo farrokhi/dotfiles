@@ -22,7 +22,6 @@ if [ -d ${ZSH} ]; then
     ZSH_THEME="agkozak"
     AGKOZAK_MULTILINE=0
     AGKOZAK_CMD_EXEC_TIME=0
-
     CASE_SENSITIVE="true"
     HYPHEN_INSENSITIVE="true"
     DISABLE_AUTO_UPDATE="true"
@@ -31,6 +30,7 @@ if [ -d ${ZSH} ]; then
         git
         tig
         pip
+        go
     )
 
     source ${ZSH}/oh-my-zsh.sh
