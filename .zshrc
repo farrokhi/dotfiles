@@ -26,13 +26,6 @@ if [ -d ${ZSH} ]; then
     HYPHEN_INSENSITIVE="true"
     DISABLE_AUTO_UPDATE="true"
 
-    plugins=(
-        git
-        tig
-        pip
-        go
-    )
-
     source ${ZSH}/oh-my-zsh.sh
 fi
 
