@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Encrypt/Decrypt input file using gpg
+#
+
+KEY="0x99E95EA4FCE567A8"
+
+die() {
+    echo "ERROR: $*" 1>&2
+    exit 1
+}
+
+[ $# -ge 1 ] || die "missing input filename"
+[ -f ${1} ] || die "cannot read input file"
+
+if echo ${1} | grep -q "\.gpg$"; then 
+    # input file is gpg encrypted
+    ifile=${1}
+    ofile="${1%.gpg}"  # strip suffix
+    [ -f ${ofile} ] && die "output file \"${ofile}\" already exists"
+    echo "Decrypting..."
+    gpg -q --batch -d -o ${ofile} < ${ifile} || die "failed to decrypt ${ifile}"
+    echo "Decrypted ${ifile} to ${ofile}"
+else
+    # input file is plaintext and should be encrypted
+    ifile=${1}
+    ofile="${1}.gpg"
+    [ -f ${ofile} ] && die "output file \"${ofile}\" already exists"
+    echo "Encrypting..."
+    gpg --batch -e -a -r ${KEY} -o ${ofile} ${ifile} || die "failed to encrypt ${ifile}"
+    echo "Encrypted ${ifile} to ${ofile}"
+fi
