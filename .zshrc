@@ -46,6 +46,10 @@ export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
+switch_yubikey () {
+    gpg-connect-agent "scd serialno" "learn --force" /bye
+}
+
 #if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
 #    source ${HOME}/bin/ensure-ssh-agent.sh
 #fi
