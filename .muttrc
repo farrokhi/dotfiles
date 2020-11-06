@@ -1,0 +1,80 @@
+# Account Settings -----------------------------------
+set from             = 'babak@farrokhi.net'
+set realname         = 'Babak Farrokhi'
+set sendmail         = 'msmtp'
+
+# Paths ----------------------------------------------
+set folder           = '~/Mail/fastmail'       # mailbox location
+set alias_file       = '~/.mutt/alias'         # where to store aliases
+set header_cache     = '~/.mutt/cache/headers' # where to store headers
+set message_cachedir = '~/.mutt/cache/bodies'  # where to store bodies
+set certificate_file = '~/.mutt/certificates'  # where to store certs
+set mailcap_path     = '~/.mutt/mailcap'       # entries for filetypes
+set tmpdir           = '~/.mutt/tmp'           # where to keep temp files
+set signature        = '~/.mutt/sig'           # my signature file
+
+# Folders --------------------------------------------
+set spoolfile        = '+INBOX'
+set record           = '+Sent'
+set postponed        = '+Drafts'
+set trash            = '+Trash'
+
+# Account Settings -----------------------------------
+set timeout          = 5
+set mail_check       = 0
+set sort             = 'threads'
+set sort_aux         = 'last-date-received'
+set mbox_type        = Maildir
+set wait_key         = no
+set confirmappend    = no
+set move             = no
+set mark_old         = no
+set beep_new         = no
+set delete
+set quit
+set menu_scroll
+set thorough_search
+set mail_check_stats
+
+# Header Options -------------------------------------
+ignore 'Authentication-Results:'
+ignore 'DomainKey-Signature:'
+ignore 'DKIM-Signature:'
+hdr_order Date From To Cc
+
+# Editor ---------------------------------------------
+set editor='vim +/^$ "+setlocal spell nojs nosmartindent tw=72 fo=atqc" +noh'
+set text_flowed
+set envelope_from                    # which from?
+set sig_dashes                       # dashes before sig
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+unset mime_forward                   # forward attachments as part of body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+
+# Message Formatting ---------------------------------
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+set pipe_decode
+set print_decode
+
+# Theme ----------------------------------------------
+source "~/.mutt/mutt-colors-xoria256.muttrc"
+
+# Encryption -----------------------------------------
+set pgp_sign_as=0x99E95EA4FCE567A8
+set pgp_autosign
+set pgp_auto_decode
+set pgp_replysign
+set pgp_replyencrypt
+set pgp_replysignencrypted
+source "~/.mutt/gpg.muttrc"
+
