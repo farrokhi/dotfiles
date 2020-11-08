@@ -87,11 +87,18 @@ bind index,pager '#' sidebar-open
 source "~/.mutt/mutt-colors-xoria256.muttrc"
 
 # Encryption -----------------------------------------
-set pgp_sign_as=0x99E95EA4FCE567A8
+my_hdr X-PGP-Key: https://farrokhi.net/babak-farrokhi-pgp.asc
+set pgp_default_key  = 0x941DB42EA4671245
+set pgp_sign_as      = 0xDCBF25301C0F5FD8
+set pgp_timeout = 3600
+set pgp_self_encrypt
+set pgp_use_gpg_agent
 set pgp_autosign
 set pgp_auto_decode
 set pgp_replysign
 set pgp_replyencrypt
 set pgp_replysignencrypted
+set pgp_verify_sig
+
 source "~/.mutt/gpg.muttrc"
 
