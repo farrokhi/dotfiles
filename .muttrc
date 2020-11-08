@@ -69,14 +69,17 @@ auto_view text/html
 set pipe_decode
 set print_decode
 
-# Macros ---------------------------------------------
+# Macros and Keybindings -----------------------------
 macro index 0 "<shell-escape>~/.mutt/syncmail.sh<enter>" "Sync imap with Maildir"
 macro index A "<tag-prefix><save-message>=Archive<enter>" "Move message(s) to Archive folder"
 macro pager A "<save-message>=Archive<enter>" "Move message(s) to Archive folder"
+bind pager <up> previous-line
+bind pager <down> next-line
 
 # Sidebar --------------------------------------------
-set sidebar_width=30
-set sidebar_visible=yes
+set sidebar_width    = 30
+set sidebar_visible  = yes
+set sidebar_format   = '%B%?F? [%F]?%* %?N?%N/?%S'
 macro index B '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager B '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 bind index,pager '[' sidebar-prev
