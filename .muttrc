@@ -2,22 +2,25 @@
 set from             = 'babak@farrokhi.net'
 set realname         = 'Babak Farrokhi'
 set sendmail         = 'msmtp'
+set my_mailbox       = 'fastmail'
+alternates           ^farrokhi@FreeBSD.org$ ^bfarrokhi@gmail.com$ ^farrokhi@me.com$
 
 # Paths ----------------------------------------------
-set folder           = '~/Mail/fastmail'       # mailbox location
-set alias_file       = '~/.mutt/alias'         # where to store aliases
-set header_cache     = '~/.mutt/cache/headers' # where to store headers
-set message_cachedir = '~/.mutt/cache/bodies'  # where to store bodies
-set certificate_file = '~/.mutt/certificates'  # where to store certs
-set mailcap_path     = '~/.mutt/mailcap'       # entries for filetypes
-set tmpdir           = '~/.mutt/tmp'           # where to keep temp files
-set signature        = '~/.mutt/sig'           # my signature file
+set folder           = "~/Mail/$my_mailbox"    # mailbox location
+set alias_file       = "~/.mutt/alias"         # where to store aliases
+set header_cache     = "~/.mutt/cache/headers" # where to store headers
+set message_cachedir = "~/.mutt/cache/bodies"  # where to store bodies
+set certificate_file = "~/.mutt/certificates"  # where to store certs
+set mailcap_path     = "~/.mutt/mailcap"       # entries for filetypes
+set tmpdir           = "~/.mutt/tmp"           # where to keep temp files
+set signature        = "~/.mutt/sig"           # my signature file
 
 # Folders --------------------------------------------
 set spoolfile        = '+INBOX'
 set record           = '+Sent'
 set postponed        = '+Drafts'
 set trash            = '+Trash'
+mailboxes            `cat ~/Mail/mailboxes`
 
 # Account Settings -----------------------------------
 set timeout          = 5
@@ -65,6 +68,20 @@ alternative_order text/plain text/enriched text/html
 auto_view text/html
 set pipe_decode
 set print_decode
+
+# Macros ---------------------------------------------
+macro index 0 "<shell-escape>~/.mutt/syncmail.sh<enter>" "Sync imap with Maildir"
+macro index A "<tag-prefix><save-message>=Archive<enter>" "Move message(s) to Archive folder"
+macro pager A "<save-message>=Archive<enter>" "Move message(s) to Archive folder"
+
+# Sidebar --------------------------------------------
+set sidebar_width=30
+set sidebar_visible=yes
+macro index B '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager B '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+bind index,pager '[' sidebar-prev
+bind index,pager ']' sidebar-next
+bind index,pager '#' sidebar-open
 
 # Theme ----------------------------------------------
 source "~/.mutt/mutt-colors-xoria256.muttrc"
