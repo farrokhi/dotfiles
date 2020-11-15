@@ -22,7 +22,7 @@ set postponed        = '+Drafts'
 set trash            = '+Trash'
 mailboxes            `cat ~/Mail/mailboxes`
 
-# Account Settings -----------------------------------
+# Interface Settings ---------------------------------
 set timeout          = 5
 set mail_check       = 0
 set sort             = 'threads'
@@ -38,6 +38,7 @@ set quit
 set menu_scroll
 set thorough_search
 set mail_check_stats
+set user_agent
 
 # Header Options -------------------------------------
 ignore 'Authentication-Results:'
