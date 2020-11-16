@@ -47,7 +47,7 @@ ignore 'DKIM-Signature:'
 hdr_order Date From To Cc
 
 # Editor ---------------------------------------------
-set editor='vim +/^$ "+setlocal spell nojs nosmartindent tw=72 fo=atqc" +noh'
+set editor='vim +/^$ "+setlocal spell nojs nosmartindent tw=72 fo=tqc" +noh'
 set text_flowed
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
