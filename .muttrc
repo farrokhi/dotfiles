@@ -48,7 +48,7 @@ ignore 'DKIM-Signature:'
 hdr_order Date From To Cc
 
 # Editor ---------------------------------------------
-set editor='vim +/^$ "+setlocal spell nojs nosmartindent tw=72 fo=atqc" +noh'
+set editor='vim +/^$ "+setlocal spell nojs nosmartindent tw=72 fo=tqc" +noh'
 set text_flowed
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
@@ -79,7 +79,7 @@ bind pager <up> previous-line
 bind pager <down> next-line
 
 # mutt macros for mu
-macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>read -p 'mu query: ' x; mu find --clearlinks --format=links --linksdir=~/Mail/search "\$x" <enter>" "mu find"
+macro index <F8> "<enter-command>unset wait_key<enter><shell-escape>read -p 'mu query: ' x; mu find --clearlinks --format=links --linksdir=~/Mail/search \"\$x\"<enter>" "mu find"
 macro index <F9> "<change-folder-readonly>~/Mail/search<enter>" "mu find results"
 
 # Sidebar --------------------------------------------
