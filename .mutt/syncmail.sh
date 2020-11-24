@@ -5,3 +5,7 @@ mbsync -l -a | egrep -v '^(Snoozed$|Notes$|Calendar$|Tasks$|Journal$|Contacts$|O
 
 # Synchronize mailbox
 mbsync -a
+
+# Update search index
+mu index
+
