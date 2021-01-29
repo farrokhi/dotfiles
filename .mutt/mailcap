@@ -66,7 +66,10 @@ image/gif; ~/.mutt/view_attachment.sh %s
 application/pdf; ~/.mutt/view_attachment.sh %s pdf
 
 # HTML
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
+#text/html; w3m -I %{charset} -T text/html; copiousoutput;
+#text/html; elinks -dump -dump-charset %{charset} -default-mime-type text/html %s; copiousoutput;
+text/html; lynx -unique_urls -assume_unrec_charset=%{charset} -force_html -dump '%s'; copiousoutput;
+
 
 # Unidentified.
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-" 
