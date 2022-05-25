@@ -1,24 +1,27 @@
+# -*- mode:conf -*-
+
 root = true
 
 [*]
-end_of_line = lf
-insert_final_newline = true
-m_trailing_whitespace = true
+end_of_line             = lf
+insert_final_newline    = true
+charset                 = utf-8
+m_trailing_whitespace   = true
 
 [*.py]
-indent_style = space
-indent_size = 4
-charset = utf-8
+indent_style            = space
+indent_size             = 4
 
-[*.c]
-indent_size = 4
+[*.{c,h}]
+indent_size             = 4
+max_line_length         = 80
 
 [Makefile]
-indent_style = tab
-indent_size = 8
+indent_style            = tab
+indent_size             = 8
+max_line_length         = 100
 
 [*.md]
 trim_trailing_whitespace = false
-indent_style = space
-indent_size = 4
-
+indent_style             = space
+indent_size              = 4
