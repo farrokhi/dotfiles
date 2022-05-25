@@ -12,8 +12,9 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 # A few sane environment settings
 export PROMPT="[%n@%m:%~]%# "
-export EDITOR="vim"
+export EDITOR="emacs -nw"
 export LANG="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 export PAGER="less -SFX"
 
 # Eyecandy and stuff for lazy people
@@ -30,6 +31,7 @@ if [ -d ${ZSH} ]; then
 fi
 
 # Useful aliases
+alias e="emacs -nw"
 alias h="history 25"
 alias j="jobs -l"
 alias telnet="telnet -K"
