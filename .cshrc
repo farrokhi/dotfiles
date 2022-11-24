@@ -1,8 +1,12 @@
 set prompt = "[%B%n%b@%B%m%b %~]%# "
 set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin)
-setenv EDITOR vim
-setenv PAGER most
-setenv LC_ALL en_US.UTF-8
+
+setenv EDITOR   "emacs -nw"
+setenv PAGER    "less -SFX"
+
+setenv LC_ALL   en_US.UTF-8
+setenv LANG     en_US.UTF-8
+setenv LC_CTYPE en_US.UTF-8
 
 # directories
 complete cd 'C/*/d/'
