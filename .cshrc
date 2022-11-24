@@ -46,4 +46,6 @@ set autoexpand
 set color
 
 source ~/.complete
-setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
+
+/usr/libexec/path_helper | eval
+setenv PATH "/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH"
