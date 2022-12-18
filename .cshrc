@@ -52,3 +52,6 @@ gpgconf --launch gpg-agent
 source ~/.complete
 eval `/usr/libexec/path_helper -c`
 setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
+
+set history = 1000
+set savehist=(1000 merge lock)
