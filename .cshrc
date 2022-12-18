@@ -43,5 +43,11 @@ set autolist
 set autoexpand
 set color
 
+# GPG
+setenv GPG_TTY `tty`
+setenv SSH_AUTH_SOCK `gpgconf --list-dirs agent-ssh-socket `
+gpgconf --launch gpg-agent
+
+
 source ~/.complete
 setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
