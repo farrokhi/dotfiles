@@ -1,8 +1,7 @@
 set prompt = "[%B%n%b@%B%m%b %~]%# "
-set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin)
+set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
 setenv EDITOR vim
 setenv PAGER most
-setenv LC_ALL en_US.UTF-8
 
 # directories
 complete cd 'C/*/d/'
@@ -31,6 +30,11 @@ bindkey "^W" backward-delete-word
 bindkey -k up history-search-backward
 bindkey -k down history-search-forward
 bindkey "\e[3~" delete-char
+
+# Locale
+setenv LANG    en_US.UTF-8
+setenv LC_ALL  en_US.UTF-8
+setenv LC_TYPE en_US.UTF-8
 
 # Eyecandy and usability
 setenv CLICOLOR
