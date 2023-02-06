@@ -1,9 +1,9 @@
-set prompt = "[%B%n%b@%B%m%b %~]%# "
-set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin)
+set prompt = "[%~]%# "
+set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
+setenv EDITOR "emacs -nw"
+setenv PAGER "less -SRFX"
 
-setenv EDITOR   "emacs -nw"
-setenv PAGER    "less -SFX"
-
+# locale
 setenv LC_ALL   en_US.UTF-8
 setenv LANG     en_US.UTF-8
 setenv LC_CTYPE en_US.UTF-8
@@ -19,24 +19,31 @@ complete chgrp 'p/1/g/'
 complete chown 'p/1/u/'
 
 # Aliases
-alias ll	ls -lAh
-alias lf	ls -FA
+alias e         ${EDITOR}
+alias p         ${PAGER}
+alias ll        ls -lAh
+alias lf        ls -FA
 alias la        ls -A
 alias h         history 25
 alias j         jobs -l
 alias telnet    telnet -K
-alias grep	grep --color
-alias egrep	egrep --color
-alias mc	mc -u
+alias grep      grep --color
+alias egrep     egrep --color
+alias mc        mc -u
 alias diff      colordiff
-alias yl        yamllint -d '{extends: default, rules: {line-length: disable, truthy: disable, braces: disable, comments: disable, brackets: disable}}'
-
+alias mu4e      emacs -nw --eval \'\(mu4e\)\'
+alias magit     emacs -nw --eval \'\(magit\)\'
 
 # Key bindings
 bindkey "^W" backward-delete-word
 bindkey -k up history-search-backward
 bindkey -k down history-search-forward
 bindkey "\e[3~" delete-char
+
+# Locale
+setenv LANG    en_US.UTF-8
+setenv LC_ALL  en_US.UTF-8
+setenv LC_TYPE en_US.UTF-8
 
 # Eyecandy and usability
 setenv CLICOLOR
@@ -45,7 +52,15 @@ set autolist
 set autoexpand
 set color
 
-source ~/.complete
+# GPG
+setenv GPG_TTY `tty`
+setenv SSH_AUTH_SOCK `gpgconf --list-dirs agent-ssh-socket `
+gpgconf --launch gpg-agent
 
-/usr/libexec/path_helper | eval
-setenv PATH "/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH"
+
+source ~/.complete
+eval `/usr/libexec/path_helper -c`
+setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
+
+set history = 1000
+set savehist=(1000 merge)
