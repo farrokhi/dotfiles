@@ -1,7 +1,7 @@
-set prompt = "[%B%n%b@%B%m%b %~]%# "
+set prompt = "[%~]%# "
 set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
-setenv EDITOR vim
-setenv PAGER most
+setenv EDITOR "emacs -nw"
+setenv PAGER "less -SRFX"
 
 # directories
 complete cd 'C/*/d/'
@@ -14,6 +14,8 @@ complete chgrp 'p/1/g/'
 complete chown 'p/1/u/'
 
 # Aliases
+alias e         ${EDITOR}
+alias p         ${PAGER}
 alias ll        ls -lAh
 alias lf        ls -FA
 alias la        ls -A
@@ -24,6 +26,8 @@ alias grep      grep --color
 alias egrep     egrep --color
 alias mc        mc -u
 alias diff      colordiff
+alias mu4e      emacs -nw --eval \'\(mu4e\)\'
+alias magit     emacs -nw --eval \'\(magit\)\'
 
 # Key bindings
 bindkey "^W" backward-delete-word
