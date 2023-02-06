@@ -1,5 +1,10 @@
 set prompt = "[%~]%# "
-set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
+#set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
+
+eval `/usr/libexec/path_helper -c`
+setenv PATH "/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
+
 setenv EDITOR "emacs -nw"
 setenv PAGER "less -SRFX"
 
@@ -55,5 +60,3 @@ setenv SSH_AUTH_SOCK `gpgconf --list-dirs agent-ssh-socket `
 gpgconf --launch gpg-agent
 
 source ~/.complete
-eval `/usr/libexec/path_helper -c`
-setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
