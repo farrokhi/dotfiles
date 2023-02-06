@@ -3,11 +3,6 @@ set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
 setenv EDITOR "emacs -nw"
 setenv PAGER "less -SRFX"
 
-# locale
-setenv LC_ALL   en_US.UTF-8
-setenv LANG     en_US.UTF-8
-setenv LC_CTYPE en_US.UTF-8
-
 # directories
 complete cd 'C/*/d/'
 complete rmdir 'C/*/d/'
@@ -43,7 +38,7 @@ bindkey "\e[3~" delete-char
 # Locale
 setenv LANG    en_US.UTF-8
 setenv LC_ALL  en_US.UTF-8
-setenv LC_TYPE en_US.UTF-8
+setenv LC_CTYPE en_US.UTF-8
 
 # Eyecandy and usability
 setenv CLICOLOR
