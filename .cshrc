@@ -19,6 +19,8 @@ complete chgrp 'p/1/g/'
 complete chown 'p/1/u/'
 
 # Aliases
+alias b         bat --theme base16-256
+alias d         sdcv -2 ~/dict/ -c -0
 alias e         ${EDITOR}
 alias p         ${PAGER}
 alias ll        ls -lAh
