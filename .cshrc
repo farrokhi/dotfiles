@@ -20,8 +20,11 @@ complete chgrp 'p/1/g/'
 # users
 complete chown 'p/1/u/'
 
+# dict (sdcv) settings
+setenv SDCV_PAGER "${PAGER}"
+
 # Aliases
-alias b         bat --theme base16-256
+alias b         bat -p --theme base16
 alias d         sdcv -2 ~/dict/ -c -0
 alias e         ${EDITOR}
 alias p         ${PAGER}
@@ -45,8 +48,8 @@ bindkey -k down history-search-forward
 bindkey "\e[3~" delete-char
 
 # Locale
-setenv LANG    en_US.UTF-8
-setenv LC_ALL  en_US.UTF-8
+setenv LANG     en_US.UTF-8
+setenv LC_ALL   en_US.UTF-8
 setenv LC_CTYPE en_US.UTF-8
 
 # Eyecandy and usability
