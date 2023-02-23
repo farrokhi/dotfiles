@@ -5,8 +5,10 @@ eval `/usr/libexec/path_helper -c`
 setenv PATH "/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
 
-setenv EDITOR "emacs -nw"
-setenv PAGER "less -SRFX"
+setenv ALTERNATE_EDITOR ''
+setenv EDITOR 'emacsclient -t'
+setenv VISUAL 'emacsclient -c -a emacs'
+setenv PAGER  'less -SRFX'
 
 # directories
 complete cd 'C/*/d/'
