@@ -1,5 +1,10 @@
 set prompt = "[%~]%# "
-#set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin)
+
+# For some reason, 'setenv PATH' does not work if you have
+# something from your home directory in the path. Therefore
+# you should use 'set path'.
+
+set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin $path)
 
 eval `/usr/libexec/path_helper -c`
 setenv PATH "/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
