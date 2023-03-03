@@ -29,15 +29,16 @@ complete chown 'p/1/u/'
 setenv SDCV_PAGER "${PAGER}"
 
 # Aliases
-alias b         bat -p --theme base16
-alias d         sdcv -2 ~/dict/ -c -0
+alias b         bat -p --theme "base16"
+alias d         sdcv -2 ~/dict/ -0c
 alias e         ${EDITOR}
+alias h         history 25
+alias j         jobs -l
 alias p         ${PAGER}
+
 alias ll        ls -lAh
 alias lf        ls -FA
 alias la        ls -A
-alias h         history 25
-alias j         jobs -l
 alias telnet    telnet -K
 alias grep      grep --color
 alias egrep     egrep --color
