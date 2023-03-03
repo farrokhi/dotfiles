@@ -5,7 +5,7 @@
 
 [core]
 	excludesfile = /Users/farrokhi/.gitignore_global
-	pager = less -SFX
+	pager = less -SFXR
 
 [commit]
 	gpgsign = true
