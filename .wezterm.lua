@@ -19,7 +19,7 @@ config.colors = {
    cursor_bg = '#F2DA47',
    cursor_border = '#F2DA47',
 }
-config.cursor_thickness = "1pt"
+config.cursor_thickness = "1px"
 
 -- Font
 config.font = wezterm.font {
@@ -32,8 +32,8 @@ config.line_height = 1.0
 
 -- Window Style
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations="RESIZE | MACOS_FORCE_DISABLE_SHADOW"
-config.enable_tab_bar = false
+config.window_decorations="TITLE | RESIZE | MACOS_FORCE_DISABLE_SHADOW"
+config.enable_tab_bar = true
 config.initial_rows = 35
 config.initial_cols = 120
 config.audible_bell="Disabled"
