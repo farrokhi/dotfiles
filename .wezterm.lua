@@ -19,6 +19,7 @@ config.colors = {
    cursor_bg = '#F2DA47',
    cursor_border = '#F2DA47',
 }
+config.cursor_thickness = "1pt"
 
 -- Font
 config.font = wezterm.font {
