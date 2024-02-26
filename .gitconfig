@@ -28,6 +28,11 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	l  = log --stat --graph --abbrev-commit
+	wdiff = diff --word-diff
 
 [pager]
 	branch = false
+[init]
+	defaultBranch = master
+[rerere]
+	enabled = true
