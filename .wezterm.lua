@@ -12,7 +12,7 @@ end
 
 -- This is where you actually apply your config choices
 
-native_macos_fullscreen_mode = false
+native_macos_fullscreen_mode = true
 
 config.inactive_pane_hsb = {
   saturation = 0.9,
