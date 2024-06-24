@@ -4,7 +4,7 @@ if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
 
-export PATH="/usr/local/bin:/usr/local/sbin:${HOME}/bin:${PATH}"
+export PATH="/opt/homebrew/bin:${HOME}/bin:$PATH"
 export ZSH="${HOME}/.oh-my-zsh"
 
 # Load shared variables and aliases if available
@@ -12,21 +12,18 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 # A few sane environment settings
 export PROMPT="[%n@%m:%~]%# "
-export EDITOR="emacs -nw"
+export EDITOR="vim"
+export VISUAL=$EDITOR
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export PAGER="less -SFX"
 
 # Eyecandy and stuff for lazy people
 if [ -d ${ZSH} ]; then
-    # Theme settings
-    ZSH_THEME="agkozak"
-    AGKOZAK_MULTILINE=0
-    AGKOZAK_CMD_EXEC_TIME=0
+    ZSH_THEME="mh"
     CASE_SENSITIVE="true"
     HYPHEN_INSENSITIVE="true"
     DISABLE_AUTO_UPDATE="true"
-
     source ${ZSH}/oh-my-zsh.sh
 fi
 
@@ -38,6 +35,7 @@ alias telnet="telnet -K"
 alias grep="grep --color"
 alias egrep="egrep --color"
 alias mc="mc -u"
+alias ekill="emacsclient -e \'\(kill-emacs\)\'"
 alias ll="ls -Alh"
 alias lf="ls -FA"
 alias la="ls -A"
