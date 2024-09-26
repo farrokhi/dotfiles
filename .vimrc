@@ -9,9 +9,9 @@ set ruler
 set showcmd
 set showmode
 
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+"set shiftwidth=4
+"set softtabstop=4
+"set expandtab
 set autoindent
 set shiftround
 
@@ -44,6 +44,7 @@ endtry
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   au FileType markdown set spell spelllang=en_us|set conceallevel=2|set tw=72 
+  au FileType yaml set list
 endif
 
 " Configuration for vim-markdown
