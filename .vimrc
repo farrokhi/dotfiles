@@ -45,6 +45,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   au FileType markdown set spell spelllang=en_us|set conceallevel=2|set tw=72 
   au FileType yaml set list
+  au FileType gitcommit setlocal tw=72|set spell spelllang=en_us
 endif
 
 " Configuration for vim-markdown
