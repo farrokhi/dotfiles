@@ -27,7 +27,7 @@ set ttyfast
 set lazyredraw
 set cursorline
 
-set shell=/bin/csh
+set shell=/bin/sh
 set noswapfile
 "set viminfo=""
 set background=dark
