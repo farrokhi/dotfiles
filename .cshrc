@@ -12,8 +12,10 @@ setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
 setenv PATH "/usr/local/opt/ccache/libexec:$PATH" # injecting ccache - should be last line
 
 setenv ALTERNATE_EDITOR ''
-setenv EDITOR 'emacsclient -t'
-setenv VISUAL 'emacsclient -c -a emacs'
+setenv EDITOR 'vim'
+setenv VISUAL 'vim'
+#setenv EDITOR 'emacsclient -t'
+#setenv VISUAL 'emacsclient -c -a emacs'
 setenv PAGER  'less -SRFX'
 
 # directories
@@ -47,6 +49,7 @@ alias mc        mc -u
 alias diff      colordiff
 alias mu4e      emacs -nw --eval \'\(mu4e\)\'
 alias magit     emacs -nw --eval \'\(magit\)\'
+alias ekill     emacsclient -e \'\(kill-emacs\)\'
 
 # Key bindings
 bindkey "^W" backward-delete-word
