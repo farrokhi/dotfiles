@@ -9,6 +9,7 @@ set path = (/usr/bin /bin /usr/sbin /sbin /usr/local/bin ~/bin ~/go/bin $path)
 eval `/usr/libexec/path_helper -c`
 setenv PATH "/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 setenv PATH "/usr/local/bin:/usr/local/sbin:$PATH"
+setenv PATH "/usr/local/opt/ccache/libexec:$PATH" # injecting ccache - should be last line
 
 setenv ALTERNATE_EDITOR ''
 setenv EDITOR 'emacsclient -t'
