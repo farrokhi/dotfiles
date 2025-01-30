@@ -32,7 +32,7 @@ complete chown 'p/1/u/'
 setenv SDCV_PAGER "${PAGER}"
 
 # Aliases
-alias b         bat -p --theme "base16"
+alias b         bat -p --theme "gruvbox-dark" --pager \"${PAGER}\"
 alias d         sdcv -2 ~/dict/ -0c
 alias e         ${EDITOR}
 alias h         history 25
