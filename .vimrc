@@ -46,7 +46,11 @@ if has("autocmd")
   au FileType markdown set spell spelllang=en_us|set conceallevel=2|set tw=72 
   au FileType yaml set list
   au FileType gitcommit setlocal tw=72|set spell spelllang=en_us
+  au FileType text setlocal spelllang=en_us nowrap list
 endif
+
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Configuration for vim-markdown
 let g:vim_markdown_conceal = 2
