@@ -52,6 +52,10 @@ endif
 "Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+"Wrap and unwrap lines
+nnoremap <F6> gqq
+nnoremap <F7> vipJgqq
+
 " Configuration for vim-markdown
 let g:vim_markdown_conceal = 2
 let g:vim_markdown_conceal_code_blocks = 0
