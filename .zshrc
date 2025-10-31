@@ -18,6 +18,9 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export PAGER="less -SFX"
 
+# Program specific settings
+export NNN_OPTS="dH"
+
 # Eyecandy and stuff for lazy people
 if [ -d ${ZSH} ]; then
     ZSH_THEME="mh"
@@ -59,6 +62,14 @@ switch_yubikey () {
     gpg-connect-agent "scd serialno" "learn --force" /bye
 }
 
+netblock () {
+    if [ -z "$1" ]; then
+        echo "need and IP address to lookup"
+    else
+        rdap -j $1 | jq -cr "[.name, .startAddress, .endAddress] | @tsv"
+    fi
+}
+
 #if [ -f ${HOME}/bin/ensure-ssh-agent.sh ]; then
 #    source ${HOME}/bin/ensure-ssh-agent.sh
 #fi
@@ -67,3 +78,6 @@ if [ -f ${HOME}/.Xresources ]; then
     xrdb -merge ${HOME}/.Xresources
 fi
 
+if [ "x${TERM_PROGRAM}" = "xghostty" ] ; then
+    export TERM=xterm-256color
+fi
